@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     getTodos();
     console.log("array of todos",todos)
-    console.log("isArray",todos.isArray)
+    console.log("isArray",todos.isArray())
 
   }, []);
 
