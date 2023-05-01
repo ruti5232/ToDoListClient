@@ -9,6 +9,7 @@ console.log('process.env.API_URL', process.env.REACT_APP_API_URL)
 
 apiClient.interceptors.response.use(
   function(response) {
+    console.log("response",response)
     return response;
   },
   function(error) {
@@ -18,6 +19,7 @@ apiClient.interceptors.response.use(
 );
 export default {
   getTasks: async () => {
+    console.log("response get",result.data)
     const result = await apiClient.get(``)    
     return result.data;
   },
