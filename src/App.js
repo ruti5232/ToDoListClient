@@ -27,7 +27,7 @@ function App() {
     await getTodos();//refresh tasks list
   }
 
-  useEffect(async() => {
+  useEffect(() => {
     getTodos();
     console.log("array of todos",todos)
 
@@ -43,7 +43,7 @@ function App() {
       </header>
       <section className="main" style={{ display: "block" }}>
         <ul className="todo-list">
-          {todos.forEach(todo => {
+          {todos.map(todo => {
             return (
               <li className={todo.isComplete ? "completed" : ""} key={todo.id}>
                 <div className="view">
