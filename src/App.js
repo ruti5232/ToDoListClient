@@ -3,7 +3,7 @@ import service from './service.js';
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState(["guuy","ygfyfyf"]);
+  const [todos, setTodos] = useState([]);
 
   async function getTodos() {
     const todos = await service.getTasks();
