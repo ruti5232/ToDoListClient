@@ -1,11 +1,13 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
-axios.defaults.baseURL=process.env.REACT_APP_API_URL;
-
+// axios.defaults.baseURL=process.env.REACT_APP_API_URL;
+const apiClient=axios.create({
+  baseURL:process.env.REACT_APP_API_URL
+})
 console.log('process.env.API_URL', process.env.REACT_APP_API_URL)
 
-axios.interceptors.response.use(
+apiClient.interceptors.response.use(
   function(response) {
     return response;
   },
@@ -16,12 +18,12 @@ axios.interceptors.response.use(
 );
 export default {
   getTasks: async () => {
-    const result = await axios.get(``)    
+    const result = await apiClient.get(``)    
     return result.data;
   },
 
   addTask: async(name)=>{
-    const result=await axios.post(``,{Name:name,IsComplete:false})
+    const result=await apiClient.post(``,{Name:name,IsComplete:false})
     // return result.data;
     console.log('addTask', name)
     //TODO
@@ -29,7 +31,7 @@ export default {
   },
 
   setCompleted: async(id, isComplete)=>{
-    const result=await axios.put(``,{id,isComplete})
+    const result=await apiClient.put(``,{id,isComplete})
     // return result.data;
     console.log('setCompleted', {id, isComplete})
     //TODO
@@ -37,7 +39,7 @@ export default {
   },
 
   deleteTask:async(id)=>{
-    await axios.delete(`/${id}`)
+    await apiClient.delete(`/${id}`)
     console.log('deleteTask')
   }
 };

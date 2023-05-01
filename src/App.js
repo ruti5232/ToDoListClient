@@ -27,7 +27,7 @@ function App() {
     await getTodos();//refresh tasks list
   }
 
-  useEffect(() => {
+  useEffect(async() => {
     getTodos();
     console.log("array of todos",todos)
 
@@ -43,26 +43,7 @@ function App() {
       </header>
       <section className="main" style={{ display: "block" }}>
         <ul className="todo-list">
-        {/* {todos && todos.map((todo,index) => {
-            return (
-              <li className={todo.isComplete ? "completed" : ""} key={index}>
-                <div className="view">
-                  <input
-                    className="toggle"
-                    type="checkbox"
-                    defaultChecked={todo.isComplete}
-                    onChange={(e) => {updateCompleted(todo, e.target.checked);console.log("todo",todo.name);console.log(e.target.checked)}}
-                  />
-                  <label>{todo.name}</label>
-                  <button
-                    className="destroy"
-                    onClick={() => {deleteTodo(todo.idItems);console.log(todo.idItems)}}
-                  ></button>
-                </div>
-              </li>
-            );
-          })} */}
-          {todos&&todos.map(todo => {
+          {todos.map(todo => {
             return (
               <li className={todo.isComplete ? "completed" : ""} key={todo.id}>
                 <div className="view">
