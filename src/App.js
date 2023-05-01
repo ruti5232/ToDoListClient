@@ -41,7 +41,7 @@ function App() {
       </header>
       <section className="main" style={{ display: "block" }}>
         <ul className="todo-list">
-        {todos && todos.map((todo,index) => {
+        {/* {todos && todos.map((todo,index) => {
             return (
               <li className={todo.isComplete ? "completed" : ""} key={index}>
                 <div className="view">
@@ -59,8 +59,8 @@ function App() {
                 </div>
               </li>
             );
-          })}
-          {/* {todos&&todos.map(todo => {
+          })} */}
+          {todos&&todos.map(todo => {
             return (
               <li className={todo.isComplete ? "completed" : ""} key={todo.id}>
                 <div className="view">
@@ -70,7 +70,7 @@ function App() {
                 </div>
               </li>
             );
-          })} */}
+          })}
         </ul>
       </section>
     </section >
