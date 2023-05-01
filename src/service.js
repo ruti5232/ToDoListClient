@@ -19,8 +19,8 @@ apiClient.interceptors.response.use(
 );
 export default {
   getTasks: async () => {
+    const result = await apiClient.get(``) 
     console.log("response get",result.data)
-    const result = await apiClient.get(``)    
     return result.data;
   },
 
